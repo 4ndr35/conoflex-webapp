@@ -1,0 +1,13 @@
+.material-table {
+    text-align: center;
+    margin: 5vh auto;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+}
+
+.table-top {
+    background-color: #5a7aff;
+    color: white;
+}

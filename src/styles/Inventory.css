@@ -1,0 +1,31 @@
+td {
+    padding: 6px;
+    background-color: #ffffff;
+    border-collapse: collapse;
+}
+
+tbody {
+    border-collapse: collapse;
+}
+
+.table {
+    text-align: center;
+    margin: 5vh auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.table-top {
+    background-color: #5a7aff;
+    color: white;
+}
+
+.input-quantity {
+    width: 100px;
+    margin-right: 5px;
+}
+
+.div-quantity {
+    margin: 10px;
+}
