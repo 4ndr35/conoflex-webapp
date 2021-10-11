@@ -15,7 +15,7 @@ export default function LoadOrder(props) {
 
   const handleClick = (selectedArticle, idArticle) => {
     //document.getElementById("form").reset();
-    Axios.post("http://localhost:3001/createorder", {
+    Axios.post("https://centralconoflex.herokuapp.com/createorder", {
       client: client,
       date: date,
       article: selectedArticle,
@@ -25,7 +25,7 @@ export default function LoadOrder(props) {
       console.log("success");
     });
 
-    Axios.put("http://localhost:3001/updateinventory", {
+    Axios.put("https://centralconoflex.herokuapp.com/updateinventory", {
       stock: articles[idArticle].stock - quantity,
       idarticle: idArticle,
     }).then((response) => {
@@ -37,13 +37,13 @@ export default function LoadOrder(props) {
   };
 
   const getAllOrders = () => {
-    Axios.get("http://localhost:3001/getallorders").then((response) => {
+    Axios.get("https://centralconoflex.herokuapp.com/getallorders").then((response) => {
       setOrders(response.data);
     });
   };
 
   const getInventory = () => {
-    Axios.get("http://localhost:3001/getinventory").then((response) => {
+    Axios.get("https://centralconoflex.herokuapp.com/getinventory").then((response) => {
       setArticles(response.data);
     });
   };
