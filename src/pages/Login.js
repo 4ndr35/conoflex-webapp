@@ -7,7 +7,7 @@ export default function Login(props) {
   const [users, setUsers] = useState([]);
 
   const getUsers = () => {
-    Axios.get("http://localhost:3001/users").then((response) => {
+    Axios.get("https://centralconoflex.herokuapp.com/users").then((response) => {
       setUsers(response.data);
     });
   };
