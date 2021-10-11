@@ -30,6 +30,7 @@ export default function DeliveredOrders() {
 
   return (
     <div className="deliveredorders-table">
+      <h3>{deliveredOrders.length} artículos entregados</h3>
       <table>
         <tbody>
           <tr>

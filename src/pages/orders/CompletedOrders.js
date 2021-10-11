@@ -30,6 +30,7 @@ export default function CompletedOrders() {
 
   return (
       <div className="completedorders-table">
+        <h3>{completedOrders.length} artículos listos</h3>
         <table>
           <tbody>
             <tr>
