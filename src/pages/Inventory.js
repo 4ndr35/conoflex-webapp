@@ -9,7 +9,7 @@ export default function Inventory() {
   const [updatedStock, setUpdatedStock] = useState(0);
 
   const getInventory = () => {
-    Axios.get("http://localhost:3001/getinventory").then((response) => {
+    Axios.get("https://centralconoflex.herokuapp.com/getinventory").then((response) => {
       setInventory(response.data);
     });
   };
@@ -21,7 +21,7 @@ export default function Inventory() {
 
   const updateStock = (id) => {
     editStock();
-    Axios.put("http://localhost:3001/updateinventory", {stock: updatedStock, idarticle: id}).then((response) => {
+    Axios.put("https://centralconoflex.herokuapp.com/updateinventory", {stock: updatedStock, idarticle: id}).then((response) => {
       console.log('updated')
     })
   }
@@ -31,7 +31,7 @@ export default function Inventory() {
   }, [inventory, inputStock]);
 
   return (
-    <div className="table">
+    <div className="inventory-table">
       <table>
         <tbody>
           <tr>

@@ -9,7 +9,7 @@ export default function MaterialStock() {
   const [updatedStock, setUpdatedStock] = useState(0);
 
   const getMaterialStock = () => {
-    Axios.get("http://localhost:3001/getmaterialstock").then((response) => {
+    Axios.get("https://centralconoflex.herokuapp.com/getmaterialstock").then((response) => {
       setMaterialStock(response.data);
     });
   };
@@ -21,7 +21,7 @@ export default function MaterialStock() {
 
   const updateStock = (id) => {
     editStock();
-    Axios.put("http://localhost:3001/updatematerialstock", {stock: updatedStock, idmaterialstock: id}).then((response) => {
+    Axios.put("https://centralconoflex.herokuapp.com/updatematerialstock", {stock: updatedStock, idmaterialstock: id}).then((response) => {
       console.log('material updated')
     })
   }

@@ -8,14 +8,14 @@ export default function DeliveredOrders() {
   const [deliveredOrders, setDeliveredOrders] = useState([]);
 
   const getDeliveredOrders = () => {
-    Axios.get("http://localhost:3001/deliveredorders").then((response) => {
+    Axios.get("https://centralconoflex.herokuapp.com/deliveredorders").then((response) => {
       setDeliveredOrders(response.data);
     });
   };
 
   const handleClick = (index) => {
     console.log(index);
-    Axios.put("http://localhost:3001/updateorder", {
+    Axios.put("https://centralconoflex.herokuapp.com/updateorder", {
       idorder: index,
       status: "COMPLETED",
     }).then((response) => {
