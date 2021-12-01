@@ -31,7 +31,7 @@ export default function Login(props) {
     <div className="mt-5">
       <div className="container">
         {!props.loginStatus ? (
-          <Form className="container w-25">
+          <Form className="container w-50">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Usuario</Form.Label>
               <Form.Control

@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavbarComponent from "./NavbarComponent";
 
 import Home from "../pages/Home";
 import LoadOrder from "../pages/orders/LoadOrder";
@@ -17,12 +16,6 @@ import Login from "../pages/Login";
 export default function Enrutador(props) {
   return (
     <Router>
-      {props.loginStatus ? (
-        <NavbarComponent />
-      ) : (
-        ""
-      )}
-
       <Switch>
         {/* ORDERS */}
         <Route path="/load-order">

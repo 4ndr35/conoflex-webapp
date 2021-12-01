@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavbarComponent from "./components/Enrutador.js";
+import Enrutador from "./components/Enrutador.js";
 
 function Core() {
   const [userName, setUserName] = useState("");
@@ -8,7 +8,7 @@ function Core() {
 
   return (
     <div>
-      <NavbarComponent
+      <Enrutador
         userName={userName}
         setUserName={setUserName}
         password={password}
