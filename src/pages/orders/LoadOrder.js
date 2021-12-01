@@ -3,6 +3,8 @@ import { Button, Form, Table } from "react-bootstrap";
 import Axios from "axios";
 import moment from "moment";
 
+import NavbarComponent from "../../components/NavbarComponent";
+
 export default function LoadOrder(props) {
   const [client, setClient] = useState("");
   const [date, setDate] = useState("");
@@ -57,6 +59,7 @@ export default function LoadOrder(props) {
 
   return (
     <div>
+      <NavbarComponent />
       <Form className="container mt-5">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Cliente</Form.Label>

@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NavbarComponent from "./NavbarComponent";
 
 import Home from "../pages/Home";
 import LoadOrder from "../pages/orders/LoadOrder";
@@ -16,6 +17,7 @@ import Login from "../pages/Login";
 export default function Enrutador(props) {
   return (
     <Router>
+      {props.loginStatus ? <NavbarComponent /> : ""}
       <Switch>
         {/* ORDERS */}
         <Route path="/load-order">
@@ -40,7 +42,7 @@ export default function Enrutador(props) {
           <ToProduce />
         </Route>
         <Route path="/finished-production">
-          <FinishedProduction role={props.role} userName={props.userName} />
+          <FinishedProduction userName={props.userName} />
         </Route>
         <Route path="/employees">
           <Employees />
@@ -62,8 +64,6 @@ export default function Enrutador(props) {
             setPassword={props.setPassword}
             loginStatus={props.loginStatus}
             setLoginStatus={props.setLoginStatus}
-            role={props.role}
-            setRole={props.setRole}
           />
         </Route>
       </Switch>

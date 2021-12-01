@@ -1,11 +1,11 @@
-import NavbarComponent from "./components/NavbarComponent";
+import React from "react";
 import Core from "./Core";
 
 function App() {
+  
 
   return (
     <div className="App">
-      <NavbarComponent />
       <Core />
     </div>
   );
