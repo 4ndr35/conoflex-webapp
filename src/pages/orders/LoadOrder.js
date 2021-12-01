@@ -101,7 +101,7 @@ export default function LoadOrder(props) {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Cantidad</Form.Label>
           <Form.Control
-            name="number"
+            name="quantity"
             type="number"
             onChange={(event) => {
               setQuantity(event.target.value);
