@@ -102,7 +102,7 @@ export default function LoadOrder(props) {
           <Form.Label>Cantidad</Form.Label>
           <Form.Control
             name="number"
-            type="quantity"
+            type="number"
             onChange={(event) => {
               setQuantity(event.target.value);
             }}
