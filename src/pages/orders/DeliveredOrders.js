@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import moment from "moment";
 
-import "../../styles/orders/DeliveredOrders.css";
-
 export default function DeliveredOrders() {
   const [deliveredOrders, setDeliveredOrders] = useState([]);
 

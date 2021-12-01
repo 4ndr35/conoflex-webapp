@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import moment from "moment";
 
-import "../../styles/orders/PendingOrders.css";
-
 export default function PendingOrders() {
   const [pendingOrders, setPendingOrders] = useState([]);
 

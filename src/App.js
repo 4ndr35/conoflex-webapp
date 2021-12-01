@@ -1,11 +1,11 @@
+import NavbarComponent from "./components/NavbarComponent";
 import Core from "./Core";
-
-import "./App.css";
 
 function App() {
 
   return (
     <div className="App">
+      <NavbarComponent />
       <Core />
     </div>
   );

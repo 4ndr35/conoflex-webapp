@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Button, Form, Table } from "react-bootstrap";
 import Axios from "axios";
 import moment from "moment";
-
-import "../../styles/orders/LoadOrder.css";
-import Order from "../../components/Order";
-import Login from "../Login";
 
 export default function LoadOrder(props) {
   const [client, setClient] = useState("");
@@ -12,6 +9,7 @@ export default function LoadOrder(props) {
   const [articles, setArticles] = useState([]);
   const [quantity, setQuantity] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [status, setStatus] = useState("");
 
   const handleClick = (selectedArticle, idArticle) => {
     //document.getElementById("form").reset();
@@ -20,7 +18,7 @@ export default function LoadOrder(props) {
       date: date,
       article: selectedArticle,
       quantity: Number(quantity),
-      status: "PENDING",
+      status: status,
     }).then(() => {
       console.log("success");
     });
@@ -37,15 +35,19 @@ export default function LoadOrder(props) {
   };
 
   const getAllOrders = () => {
-    Axios.get("https://centralconoflex.herokuapp.com/getallorders").then((response) => {
-      setOrders(response.data);
-    });
+    Axios.get("https://centralconoflex.herokuapp.com/getallorders").then(
+      (response) => {
+        setOrders(response.data);
+      }
+    );
   };
 
   const getInventory = () => {
-    Axios.get("https://centralconoflex.herokuapp.com/getinventory").then((response) => {
-      setArticles(response.data);
-    });
+    Axios.get("https://centralconoflex.herokuapp.com/getinventory").then(
+      (response) => {
+        setArticles(response.data);
+      }
+    );
   };
 
   useEffect(() => {
@@ -54,87 +56,111 @@ export default function LoadOrder(props) {
   }, [orders]);
 
   return (
-    <div className="orders">
-      {props.loginStatus && props.role === "admin" ? (
-        <>
-          <div className="form" id="form">
-            <h4>Ingresar nuevo pedido</h4>
-            <label>Cliente</label>
-            <input
-              type="text"
-              name="client"
-              onChange={(event) => {
-                setClient(event.target.value);
-              }}
-            />
-            <label>Fecha</label>
-            <input
-              type="date"
-              name="date"
-              onChange={(event) => {
-                setDate(event.target.value);
-              }}
-            />
-            <label>Artículo</label>
-            <select name="article" id="select-article">
-              {articles.map((article, key) => {
-                return (
-                  <option key={key} value={key}>
-                    {article.name}
-                  </option>
-                );
-              })}
-            </select>
-            <label>Cantidad</label>
-            <input
-              type="number"
-              name="quantity"
-              onChange={(event) => {
-                setQuantity(event.target.value);
-              }}
-            />
-            <button
-              onClick={() =>
-                handleClick(
-                  document.getElementById("select-article").options[
-                    document.getElementById("select-article").value
-                  ].text,
-                  document.getElementById("select-article").value
-                )
-              }
-            >
-              Ingresar
-            </button>
-          </div>
-          <div className="list-employees">
-            <h4>Últimos pedidos ingresados</h4>
-            <div className="employees-box">
-              {orders.slice(0, 9).map((val, key) => {
-                return (
-                  <Order
-                    key={val.idorder}
-                    client={val.client}
-                    date={moment(val.date).format("DD/MM/YYYY")}
-                    article={val.article}
-                    quantity={val.quantity}
-                    status={val.status}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        </>
-      ) : (
-        <div>
-          Permisos insuficientes
-          <br />
-          Se necesita ser admin para visualizar la seccion
-          <br />
-          <button>
-            <a href="/">Loguearse</a>
-          </button>
-        </div>
-      )}
+    <div>
+      <Form className="container mt-5">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Cliente</Form.Label>
+          <Form.Control
+            name="client"
+            onChange={(event) => {
+              setClient(event.target.value);
+            }}
+            type="text"
+            placeholder="Ingresa el cliente"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Fecha</Form.Label>
+          <Form.Control
+            name="date"
+            type="date"
+            onChange={(event) => {
+              setDate(event.target.value);
+            }}
+            placeholder="Ingresa la fecha"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Articulo</Form.Label>
+          <Form.Select name="article" type="select" id="select-article">
+            {articles.map((article, key) => {
+              return (
+                <option key={key} value={key}>
+                  {article.name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Cantidad</Form.Label>
+          <Form.Control
+            name="number"
+            type="quantity"
+            onChange={(event) => {
+              setQuantity(event.target.value);
+            }}
+            placeholder="Ingresa la cantidad"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Estado</Form.Label>
+          <Form.Select
+            name="status"
+            type="select"
+            onChange={(e) => {
+              setStatus(e.target.value);
+            }}
+          >
+            <option>En cola de produccion</option>
+            <option>Listo para armar</option>
+            <option>Listo para despachar</option>
+            <option>Despachado</option>
+          </Form.Select>
+        </Form.Group>
+        <Button
+          onClick={() =>
+            handleClick(
+              document.getElementById("select-article").options[
+                document.getElementById("select-article").value
+              ].text,
+              document.getElementById("select-article").value
+            )
+          }
+          variant="primary"
+        >
+          Ingresar
+        </Button>
+      </Form>
+      <div className="container mt-5">
+        <h5>Ultimos pedidos</h5>
+        <Table responsive="sm" className="mt-3" striped bordered hover>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Articulo</th>
+              <th>Cantidad</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.slice(0, 5).map((val, key) => (
+              <tr key={val.idorder}>
+                <td>{moment(val.date).format("DD/MM/YYYY")}</td>
+                <td>{val.client}</td>
+                <td>{val.article}</td>
+                <td>{val.quantity}</td>
+                <td>{val.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 }

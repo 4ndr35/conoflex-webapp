@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import "../styles/Employees.css";
 import Employee from "../components/Employee";
 
 export default function Home() {

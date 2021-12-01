@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import moment from "moment";
 
-import "../../styles/orders/CompletedOrders.css";
-
 export default function CompletedOrders() {
   const [completedOrders, setCompletedOrders] = useState([]);
 

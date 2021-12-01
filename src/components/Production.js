@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/ProductionComponent.css";
 
 export default function Order(props) {
   return (

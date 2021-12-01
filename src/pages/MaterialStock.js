@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
-import "../styles/Stock.css";
-
 export default function MaterialStock() {
   const [materialStock, setMaterialStock] = useState([]);
   const [inputStock, setInputStock] = useState(false);

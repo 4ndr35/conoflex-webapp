@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
-import "../styles/Inventory.css";
-
 export default function Inventory() {
   const [inventory, setInventory] = useState([]);
   const [inputStock, setInputStock] = useState(false);

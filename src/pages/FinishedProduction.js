@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import moment from "moment";
-import "../styles/Production.css";
+
 import Production from "../components/Production";
 
 export default function FinishedProduction(props) {
