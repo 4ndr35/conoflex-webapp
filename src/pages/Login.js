@@ -64,9 +64,9 @@ export default function Login(props) {
           </Form>
         ) : (
           <div className="container">
-            Bienvenido {props.userName}
+            Usuario logueado
             <br />
-            Tu rol de usuario es <strong>{props.role}</strong>
+            <strong>Usuario:</strong> {props.userName}
           </div>
         )}
       </div>

@@ -25,6 +25,12 @@ function NavbarComponent() {
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Material</NavDropdown.Item>
               </NavDropdown>
+              <NavDropdown title="Ordenes de compra" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">
+                  Cargar orden de compra
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Lista de ordenes de compra</NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
