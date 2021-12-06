@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavbarComponent from "./NavbarComponent";
+import Articles from "../Data.json";
+import Material from "../Material.json";
 
 import Home from "../pages/Home";
 import LoadOrder from "../pages/orders/LoadOrder";
@@ -26,6 +28,7 @@ export default function Enrutador(props) {
             setLoginStatus={props.setLoginStatus}
             setUserName={props.setUserName}
             setPassword={props.setPassword}
+            data={Articles}
           />
         </Route>
         <Route path="/pending-orders">
@@ -48,7 +51,7 @@ export default function Enrutador(props) {
           <Employees />
         </Route>
         <Route path="/material-stock">
-          <Stock />
+          <Stock material={Material} />
         </Route>
         <Route path="/inventory">
           <Inventory />

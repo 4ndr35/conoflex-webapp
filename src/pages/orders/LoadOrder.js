@@ -8,7 +8,6 @@ import NavbarComponent from "../../components/NavbarComponent";
 export default function LoadOrder(props) {
   const [client, setClient] = useState("");
   const [date, setDate] = useState("");
-  const [articles, setArticles] = useState([]);
   const [quantity, setQuantity] = useState([]);
   const [orders, setOrders] = useState([]);
   const [status, setStatus] = useState("");
@@ -25,15 +24,16 @@ export default function LoadOrder(props) {
       console.log("success");
     });
 
+    /* YA NO SE USA MAS BASE DE DATOS PARA ARTICULOS
     Axios.put("https://centralconoflex.herokuapp.com/updateinventory", {
       stock: articles[idArticle].stock - quantity,
       idarticle: idArticle,
     }).then((response) => {
       console.log("updated");
     });
+    */
 
     console.log(idArticle);
-    console.log(articles);
   };
 
   const getAllOrders = () => {
@@ -44,17 +44,8 @@ export default function LoadOrder(props) {
     );
   };
 
-  const getInventory = () => {
-    Axios.get("https://centralconoflex.herokuapp.com/getinventory").then(
-      (response) => {
-        setArticles(response.data);
-      }
-    );
-  };
-
   useEffect(() => {
     getAllOrders();
-    getInventory();
   }, [orders]);
 
   return (
@@ -88,7 +79,7 @@ export default function LoadOrder(props) {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Articulo</Form.Label>
           <Form.Select name="article" type="select" id="select-article">
-            {articles.map((article, key) => {
+            {props.data.map((article, key) => {
               return (
                 <option key={key} value={key}>
                   {article.name}

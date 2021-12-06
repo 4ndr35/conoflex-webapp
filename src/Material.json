@@ -1,0 +1,127 @@
+[
+    {
+        "idmaterialstock": 0,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO/SURPLAST",
+        "color": "NARANJA",
+        "code": "1002NA"
+    },
+    {
+        "idmaterialstock": 1,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO/SURPLAST",
+        "color": "ROJO RECUPERADO",
+        "code": "7495RO"
+    },
+    {
+        "idmaterialstock": 2,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO/SURPLAST",
+        "color": "AMARILLO",
+        "code": "1002AM"
+    },
+    {
+        "idmaterialstock": 3,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO",
+        "color": "NEGRO",
+        "code": "1002NE"
+    },
+    {
+        "idmaterialstock": 4,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO",
+        "color": "AZUL",
+        "code": "1002AZ"
+    },
+    {
+        "idmaterialstock": 5,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO/SURPLAST",
+        "color": "BLANCO BUENO",
+        "code": "1002BL"
+    },
+    {
+        "idmaterialstock": 6,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO",
+        "color": "BLANCO RECUPERADO",
+        "code": "3550BL"
+    },
+    {
+        "idmaterialstock": 7,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO/SURPLAST",
+        "color": "ROJO BUENO",
+        "code": "1002RO"
+    },
+    {
+        "idmaterialstock": 8,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO/SURPLAST",
+        "color": "VERDE",
+        "code": "1002VE"
+    },
+    {
+        "idmaterialstock": 9,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO",
+        "color": "VERDE MANZANA",
+        "code": "1002VE003"
+    },
+    {
+        "idmaterialstock": 10,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO",
+        "color": "CELESTE",
+        "code": "4040CEL"
+    },
+    {
+        "idmaterialstock": 11,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO",
+        "color": "GRIS",
+        "code": "1002GRIS"
+    },
+    {
+        "idmaterialstock": 12,
+        "material": "POLIETILENO",
+        "stock": 0,
+        "provider": "MUNDILENO",
+        "color": "VIOLETA",
+        "code": "4040VIO"
+    },
+    {
+        "idmaterialstock": 13,
+        "material": "PVC GRANULADO VIRGEN",
+        "stock": 0,
+        "provider": "TECNOCOM/PRINGLES",
+        "color": "N/A",
+        "code": "PVC VIRGEN"
+    },
+    {
+        "idmaterialstock": 14,
+        "material": "MASTERBATCH PVC",
+        "stock": 0,
+        "provider": "COLORSUR",
+        "color": "NARANJA",
+        "code": "3110-0120"
+    }
+]
+
+
+
+
+

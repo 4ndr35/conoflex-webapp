@@ -1,79 +1,84 @@
 import React, { useEffect, useState } from "react";
+import NavbarComponent from "../components/NavbarComponent";
+import Pagination from "../components/Pagination";
+
+import { Table, Button } from "react-bootstrap";
 import Axios from "axios";
 
-export default function MaterialStock() {
+export default function MaterialStock(props) {
   const [materialStock, setMaterialStock] = useState([]);
-  const [inputStock, setInputStock] = useState(false);
-  const [updatedStock, setUpdatedStock] = useState(0);
+  const [paginaActual, setPaginaActual] = useState(1);
+  const [pedidosPorPagina, setPedidosPorPagina] = useState(10);
+
+  const indiceDelUltimoPedido = paginaActual * pedidosPorPagina;
+  const indiceDelPrimerPedido = indiceDelUltimoPedido - pedidosPorPagina;
+  const pedidosActuales = materialStock.slice(
+    indiceDelPrimerPedido,
+    indiceDelUltimoPedido
+  );
+
+  const paginate = (numeroPagina) => setPaginaActual(numeroPagina);
 
   const getMaterialStock = () => {
-    Axios.get("https://centralconoflex.herokuapp.com/getmaterialstock").then((response) => {
-      setMaterialStock(response.data);
+    Axios.get("https://centralconoflex.herokuapp.com/getmaterialstock").then(
+      (response) => {
+        setMaterialStock(response.data);
+      }
+    );
+  };
+  const updateStock = (id) => {
+    const nuevoStock = prompt("Ingresa nuevo stock del material");
+
+    Axios.put("https://centralconoflex.herokuapp.com/updatematerialstock", {
+      stock: nuevoStock,
+      idmaterialstock: id,
+    }).then((response) => {
+      console.log("material updated");
     });
   };
 
-  const editStock = (key) => {
-    console.log(key)
-    setInputStock(!inputStock);
-  };
-
-  const updateStock = (id) => {
-    editStock();
-    Axios.put("https://centralconoflex.herokuapp.com/updatematerialstock", {stock: updatedStock, idmaterialstock: id}).then((response) => {
-      console.log('material updated')
-    })
-  }
-
   useEffect(() => {
     getMaterialStock();
-  }, [materialStock, inputStock]);
+  }, [materialStock]);
 
   return (
-    <div className="material-table">
-      <table>
-        <tbody>
-          <tr>
-            <td className="table-top">MATERIAL</td>
-            <td className="table-top">COLOR</td>
-            <td className="table-top">CODE</td>
-            <td className="table-top">PROVIDER</td>
-            <td className="table-top">STOCK</td> 
-            <td className="table-top">ACTION</td>
-          </tr>
-          {materialStock.map((val, key) => {
-            return (
-              <tr key={key}>
-                <td>{val.material}</td>
-                <td>{val.color}</td>
-                <td>{val.code}</td>
-                <td>{val.provider}</td>
+    <div>
+      <NavbarComponent />
+      <div className="container mt-5">
+        <Table responsive="sm" className="mt-3" striped bordered hover>
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Proveedor</th>
+              <th>Color</th>
+              <th>Codigo</th>
+              <th>Stock</th>
+              <th>Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {materialStock.map((material) => (
+              <tr key={material.idmaterialstock}>
+                <td>{material.material}</td>
+                <td>{material.provider}</td>
+                <td>{material.color}</td>
+                <td>{material.code}</td>
+                <td>{material.stock}</td>
                 <td>
-                  {val.stock}
-                  {inputStock ? (
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Quantity"
-                        onChange={(event) => {
-                          setUpdatedStock(event.target.value);
-                        }}
-                      />
-                      <button onClick={() => {updateStock(val.idmaterialstock)}}>Update</button>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </td>
-                <td>
-                  <button onClick={() => editStock(key)}>
-                    {inputStock ? "CANCEL" : "EDIT STOCK"}
-                  </button>
+                  <Button onClick={() => updateStock(material.idmaterialstock)}>
+                    Editar stock
+                  </Button>
                 </td>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            ))}
+          </tbody>
+          <Pagination
+            pedidosPorPagina={pedidosPorPagina}
+            pedidosTotales={materialStock.length}
+            paginate={paginate}
+          />
+        </Table>
+      </div>
     </div>
   );
 }

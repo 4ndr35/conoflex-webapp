@@ -23,7 +23,7 @@ function NavbarComponent() {
                 <NavDropdown.Item href="#action/3.1">
                   Semielaborados
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Material</NavDropdown.Item>
+                <NavDropdown.Item href="material-stock">Material</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Ordenes de compra" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">

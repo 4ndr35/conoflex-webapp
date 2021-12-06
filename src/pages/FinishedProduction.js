@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import NavbarComponent from "../components/NavbarComponent";
 import Axios from "axios";
 import moment from "moment";
 
@@ -8,6 +10,8 @@ export default function FinishedProduction(props) {
   const [articles, setArticles] = useState([]);
   const [material, setMaterial] = useState([]);
   const [quantity, setQuantity] = useState(0);
+  const [date, setDate] = useState("");
+  const [worker, setWorker] = useState("");
   const [weight, setWeight] = useState(0);
 
   const today = Date();
@@ -15,19 +19,25 @@ export default function FinishedProduction(props) {
   const [pendingProduction, setPendingProduction] = useState([]);
 
   const getInventory = () => {
-    Axios.get("https://centralconoflex.herokuapp.com/getinventory").then((response) => {
-      setArticles(response.data);
-    });
+    Axios.get("https://centralconoflex.herokuapp.com/getinventory").then(
+      (response) => {
+        setArticles(response.data);
+      }
+    );
   };
 
   const getMaterialStock = () => {
-    Axios.get("https://centralconoflex.herokuapp.com/getmaterialstock").then((response) => {
-      setMaterial(response.data);
-    });
+    Axios.get("https://centralconoflex.herokuapp.com/getmaterialstock").then(
+      (response) => {
+        setMaterial(response.data);
+      }
+    );
   };
 
   const getPendingProduction = () => {
-    Axios.get("https://centralconoflex.herokuapp.com/getpendingproduction").then((response) => {
+    Axios.get(
+      "https://centralconoflex.herokuapp.com/getpendingproduction"
+    ).then((response) => {
       setPendingProduction(response.data);
     });
   };
@@ -61,13 +71,13 @@ export default function FinishedProduction(props) {
     //  Number(material[idMaterial].stock) - Number(weight) * Number(quantity);
     updateStock(idArticle, newQuantityArticle);
     //updateMaterialStock(idMaterial, newQuantityMaterial);
-    console.log(moment().format('dddd DD/MM/YYYY'))
-    console.log(pendingProduction)
+    console.log(moment().format("dddd DD/MM/YYYY"));
+    console.log(pendingProduction);
   };
 
   const handleClick = (idArticle, idMaterial) => {
     Axios.post("https://centralconoflex.herokuapp.com/createproduction", {
-      employee: props.userName,
+      employee: worker,
       article: articles[idArticle].name,
       material:
         material[idMaterial].provider +
@@ -76,7 +86,7 @@ export default function FinishedProduction(props) {
         " " +
         material[idMaterial].code,
       quantity: Number(quantity),
-      weight: Number(weight)
+      weight: Number(weight),
     }).then(() => {
       console.log("success");
     });
@@ -98,90 +108,84 @@ export default function FinishedProduction(props) {
   }, [pendingProduction]);
 
   return (
-    <div className="employees">
-      <div className="form">
-        <label>Seleccionar artículo</label>
-        <select name="name" id="select-article">
-          {articles.map((article, key) => {
-            return (
-              <option key={key} value={key}>
-                {article.name}
-              </option>
-            );
-          })}
-        </select>
-        <label>Seleccionar material</label>
-        <select name="material" id="select-material">
-          {material.map((material, key) => {
-            return (
-              <option key={key} value={key}>
-                {material.material} {material.color} {material.code}{" "}
-                {material.provider}
-              </option>
-            );
-          })}
-        </select>
-        <label>Cantidad fabricada</label>
-        <input
-          onChange={(event) => {
-            setQuantity(event.target.value);
-          }}
-          name="quantity"
-          type="number"
-          placeholder="Cantidad"
-        />
-        <label>Peso del artículo</label>
-        <input
-          onChange={(event) => {
-            setWeight(event.target.value);
-          }}
-          name="weight"
-          type="number"
-          placeholder="Peso"
-        />
-        <button
+    <div>
+      <NavbarComponent />
+      <Form className="container mt-5">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Operario</Form.Label>
+          <Form.Control
+            name="client"
+            onChange={(event) => {
+              setWorker(event.target.value);
+            }}
+            type="text"
+            placeholder="Ingresa el operario"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Fecha</Form.Label>
+          <Form.Control
+            name="date"
+            type="date"
+            onChange={(event) => {
+              setDate(event.target.value);
+            }}
+            placeholder="Ingresa la fecha"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Articulo</Form.Label>
+          <Form.Select name="article" type="select" id="select-article">
+            {pendingProduction.map((article, key) => {
+              return (
+                <option key={key} value={key}>
+                  {article.name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Peso</Form.Label>
+          <Form.Control
+            name="weight"
+            type="number"
+            onChange={(event) => {
+              setWeight(event.target.value);
+            }}
+            placeholder="Ingresa el peso"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Cantidad</Form.Label>
+          <Form.Control
+            name="quantity"
+            type="number"
+            onChange={(event) => {
+              setQuantity(event.target.value);
+            }}
+            placeholder="Ingresa la cantidad"
+          />
+        </Form.Group>
+
+        <Button
           onClick={() =>
             handleClick(
-              document.getElementById("select-article").value,
-              document.getElementById("select-material").value
+              document.getElementById("select-article").options[
+                document.getElementById("select-article").value
+              ].text,
+              document.getElementById("select-article").value
             )
           }
+          variant="primary"
         >
-          Confirmar producción
-        </button>
-      </div>
-      <div className="list-employees">
-        <h4>Últimas producciones realizadas</h4>
-        <div className="employees-box">
-          {pendingProduction.slice(0, 9).map((val, key) => {
-            return (
-              <div>
-                <Production
-                  employee={val.employee}
-                  key={val.idproduction}
-                  article={val.article}
-                  date={moment().format('dddd DD/MM/YYYY')}
-                  weight={val.weight}
-                  material={val.material}
-                  quantity={val.quantity}
-                  confirmed={val.confirmed}
-                />
-                {props.role === "admin" ? (
-                  <button
-                    onClick={() =>
-                      confirmProduction(val.article, val.quantity)
-                    }
-                  >
-                    CONFIRMAR
-                  </button>
-                ) : (
-                  console.log()
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+          Ingresar
+        </Button>
+      </Form>
     </div>
   );
 }
