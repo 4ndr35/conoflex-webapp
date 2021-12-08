@@ -10,7 +10,12 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="finished-production">Producciones</Nav.Link>
+            <NavDropdown title="Producciones" id="basic-nav-dropdown">
+                <NavDropdown.Item href="finished-production">
+                  Cargar produccion
+                </NavDropdown.Item>
+                <NavDropdown.Item href="material-stock">Lista de producciones</NavDropdown.Item>
+              </NavDropdown>
               <NavDropdown title="Pedidos" id="basic-nav-dropdown">
                 <NavDropdown.Item href="load-order">
                   Cargar pedidos

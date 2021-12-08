@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function ToProduce() {
+function Production() {
     return (
         <div>
-            ToProduce
+            
         </div>
     )
 }
+
+export default Production

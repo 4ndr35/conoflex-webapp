@@ -4,8 +4,6 @@ import NavbarComponent from "../components/NavbarComponent";
 import Axios from "axios";
 import moment from "moment";
 
-import Production from "../components/Production";
-
 export default function FinishedProduction(props) {
   const [articles, setArticles] = useState([]);
   const [material, setMaterial] = useState([]);
@@ -13,8 +11,6 @@ export default function FinishedProduction(props) {
   const [date, setDate] = useState("");
   const [worker, setWorker] = useState("");
   const [weight, setWeight] = useState(0);
-
-  const today = Date();
 
   const [pendingProduction, setPendingProduction] = useState([]);
 
@@ -61,20 +57,6 @@ export default function FinishedProduction(props) {
     });
   };
 
-  const confirmProduction = (article, productionQuantity) => {
-    const articleNames = articles.map((article) => article.name);
-    const idArticle = articleNames.indexOf(article);
-
-    const newQuantityArticle =
-      Number(articles[idArticle].stock) + Number(productionQuantity);
-    //const newQuantityMaterial =
-    //  Number(material[idMaterial].stock) - Number(weight) * Number(quantity);
-    updateStock(idArticle, newQuantityArticle);
-    //updateMaterialStock(idMaterial, newQuantityMaterial);
-    console.log(moment().format("dddd DD/MM/YYYY"));
-    console.log(pendingProduction);
-  };
-
   const handleClick = (idArticle, idMaterial) => {
     Axios.post("https://centralconoflex.herokuapp.com/createproduction", {
       employee: worker,
@@ -93,7 +75,7 @@ export default function FinishedProduction(props) {
 
     /*
     Axios.put("http://localhost:3001/updateinventory", {
-      stock: articles[idArticle].stock - quantity,
+      stock: props.articles[idArticle].stock + quantity,
       idarticle: idArticle,
     }).then((response) => {
       console.log("updated");
@@ -138,10 +120,10 @@ export default function FinishedProduction(props) {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Articulo</Form.Label>
           <Form.Select name="article" type="select" id="select-article">
-            {pendingProduction.map((article, key) => {
+            {articles.map((article, key) => {
               return (
                 <option key={key} value={key}>
-                  {article.name}
+                  {article.name} {article.color} 
                 </option>
               );
             })}

@@ -4,14 +4,11 @@ import NavbarComponent from "./NavbarComponent";
 import Articles from "../Data.json";
 import Material from "../Material.json";
 
-import Home from "../pages/Home";
 import LoadOrder from "../pages/orders/LoadOrder";
 import PendingOrders from "../pages/orders/PendingOrders";
 import CompletedOrders from "../pages/orders/CompletedOrders";
 import DeliveredOrders from "../pages/orders/DeliveredOrders";
 import FinishedProduction from "../pages/FinishedProduction";
-import ToProduce from "../pages/ToProduce";
-import Employees from "../pages/Employees";
 import Stock from "../pages/MaterialStock";
 import Inventory from "../pages/Inventory";
 import Login from "../pages/Login";
@@ -41,23 +38,14 @@ export default function Enrutador(props) {
           <DeliveredOrders />
         </Route>
         {/* PRODUCTION */}
-        <Route path="/to-produce">
-          <ToProduce />
-        </Route>
         <Route path="/finished-production">
-          <FinishedProduction userName={props.userName} />
-        </Route>
-        <Route path="/employees">
-          <Employees />
+          <FinishedProduction articles={Articles} />
         </Route>
         <Route path="/material-stock">
           <Stock material={Material} />
         </Route>
         <Route path="/inventory">
           <Inventory />
-        </Route>
-        <Route path="/home">
-          <Home />
         </Route>
         <Route path="/">
           <Login
