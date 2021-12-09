@@ -38,15 +38,16 @@ export default function FinishedProduction(props) {
     });
   };
 
+  /*
   const updateStock = (idArticle, newQuantityArticle) => {
     Axios.put("https://centralconoflex.herokuapp.com/updateinventory", {
       stock: newQuantityArticle,
-      idarticle: idArticle,
-      weight: weight,
+      idarticle: idArticle
     }).then((response) => {
       console.log(newQuantityArticle);
     });
   };
+  */
 
   const updateMaterialStock = (idMaterial, newQuantityMaterial) => {
     Axios.put("https://centralconoflex.herokuapp.com/updatematerialstock", {
@@ -73,14 +74,14 @@ export default function FinishedProduction(props) {
       console.log("success");
     });
 
-    /*
-    Axios.put("http://localhost:3001/updateinventory", {
-      stock: props.articles[idArticle].stock + quantity,
+    
+    Axios.put("https://centralconoflex.herokuapp.com/updateinventory", {
+      stock: articles[idArticle].stock + quantity,
       idarticle: idArticle,
     }).then((response) => {
       console.log("updated");
     });
-    */
+    
   };
 
   useEffect(() => {
