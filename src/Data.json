@@ -85,72 +85,331 @@
   },
   {
     "idarticle": 12,
+    "name": "ECONO LIGHT",
+    "color": "NARANJA",
+    "category": "CONOS",
+    "code": "2071L/2R"
+  },
+  {
+    "idarticle": 13,
     "name": "ECONO",
     "color": "NARANJA",
     "category": "CONOS",
     "code": "2071/2R"
   },
   {
-    "idarticle": 13,
+    "idarticle": 14,
     "name": "ECONOMAX",
     "color": "NARANJA",
     "category": "CONOS",
     "code": "2081/2R"
   },
   {
-    "idarticle": 14,
+    "idarticle": 15,
     "name": "VENCEDOR NARANJA",
     "color": "NARANJA",
     "category": "CONOS",
     "code": "2300NA/3R"
   },
   {
-    "idarticle": 15,
+    "idarticle": 16,
     "name": "VENCEDOR NEGRO",
     "color": "NEGRO",
     "category": "CONOS",
     "code": "2300NE/3R"
   },
   {
-    "idarticle": 16,
+    "idarticle": 17,
     "name": "VENCEDOR ROJO",
     "color": "ROJO",
     "category": "CONOS",
     "code": "2300RO/3R"
   },
   {
-    "idarticle": 17,
+    "idarticle": 18,
     "name": "VENCEDOR VERDE",
     "color": "VERDE",
     "category": "CONOS",
     "code": "2300VE/3R"
   },
   {
-    "idarticle": 18,
+    "idarticle": 19,
     "name": "VENCEDOR AZUL",
     "color": "AZUL",
     "category": "CONOS",
     "code": "2300AZ/3R"
   },
   {
-    "idarticle": 19,
+    "idarticle": 20,
     "name": "VENCEDOR AMARILLO",
     "color": "AMARILLO",
     "category": "CONOS",
     "code": "2300AM/3R"
   },
   {
-    "idarticle": 20,
+    "idarticle": 21,
     "name": "VENCEDOR FLASH NARANJA",
     "color": "NARANJA",
     "category": "CONOS",
     "code": "2300FLS/3R"
   },
   {
-    "idarticle": 21,
+    "idarticle": 22,
     "name": "VENCEDOR FLASH AZUL",
     "color": "AZUL",
     "category": "CONOS",
     "code": "2300FLS/3R"
+  },
+  {
+    "idarticle": 23,
+    "name": "ATENUADOR PREMIUM",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2014 AM/NE"
+  },
+  {
+    "idarticle": 24,
+    "name": "ATENUADOR PREMIUM",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2014 AM"
+  },
+  {
+    "idarticle": 25,
+    "name": "ATENUADOR PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2014 NE"
+  },
+  {
+    "idarticle": 26,
+    "name": "DESPERTADOR PREMIUM",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2013 AM/NE"
+  },
+  {
+    "idarticle": 27,
+    "name": "DESPERTADOR PREMIUM",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2013 AM"
+  },
+  {
+    "idarticle": 28,
+    "name": "DESPERTADOR PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2013 NE"
+  },
+  {
+    "idarticle": 29,
+    "name": "IMPACTO PREMIUM",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2018 AM/NE"
+  },
+  {
+    "idarticle": 30,
+    "name": "IMPACTO PREMIUM",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2018 AM"
+  },
+  {
+    "idarticle": 31,
+    "name": "IMPACTO PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2018 NE"
+  },
+  {
+    "idarticle": 32,
+    "name": "GARITA PREMIUM",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2020 AM/NE"
+  },
+  {
+    "idarticle": 33,
+    "name": "GARITA PREMIUM",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2020 AM"
+  },
+  {
+    "idarticle": 34,
+    "name": "GARITA PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2020 NE"
+  },
+  {
+    "idarticle": 35,
+    "name": "LOMO DE BURRO PREMIUM",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2010 AM/NE"
+  },
+  {
+    "idarticle": 36,
+    "name": "LOMO DE BURRO PREMIUM",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2012 AM"
+  },
+  {
+    "idarticle": 37,
+    "name": "LOMO DE BURRO PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2009 NE"
+  },
+  {
+    "idarticle": 38,
+    "name": "PUNTERA DE LOMO PREMIUM",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2015 AM"
+  },
+  {
+    "idarticle": 39,
+    "name": "REDUCTOR PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2022 NE"
+  },
+  {
+    "idarticle": 40,
+    "name": "PUNTERA REDUCTOR PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2016 NE"
+  },
+  {
+    "idarticle": 41,
+    "name": "LOMADA PREMIUM",
+    "color": "AM/NE",
+    "category": "CONOS",
+    "code": "MP2019 AM/NE"
+  },
+  {
+    "idarticle": 42,
+    "name": "LOMADA PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2019 NE"
+  },
+  {
+    "idarticle": 43,
+    "name": "PUNTERA LOMADA PREMIUM",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2017 AM"
+  },
+  {
+    "idarticle": 44,
+    "name": "PUNTERA LOMADA PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "MP2017 NE"
+  },
+  {
+    "idarticle": 45,
+    "name": "PASA CABLE PREMIUM",
+    "color": "NE",
+    "category": "REDUCTORES",
+    "code": "LP2016"
+  },
+  {
+    "idarticle": 46,
+    "name": "ATENUADOR ESTANDAR",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2014 AM/NE LE"
+  },
+  {
+    "idarticle": 47,
+    "name": "ATENUADOR ESTANDAR",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2014 AM LE"
+  },
+  {
+    "idarticle": 48,
+    "name": "DESPERTADOR ESTANDAR",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2013 AM/NE LE"
+  },
+  {
+    "idarticle": 49,
+    "name": "DESPERTADOR ESTANDAR",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2013 AM LE"
+  },
+  {
+    "idarticle": 50,
+    "name": "IMPACTO ESTANDAR",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2018 AM/NE LE"
+  },
+  {
+    "idarticle": 51,
+    "name": "IMPACTO ESTANDAR",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2018 AM LE"
+  },
+  {
+    "idarticle": 52,
+    "name": "GARITA ESTANDAR",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2020 AM/NE LE"
+  },
+  {
+    "idarticle": 53,
+    "name": "GARITA ESTANDAR",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2020 AM LE"
+  },
+  {
+    "idarticle": 54,
+    "name": "LOMO DE BURRO ESTANDAR",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2010 AM/NE LE"
+  },
+  {
+    "idarticle": 55,
+    "name": "LOMO DE BURRO ESTANDAR",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2012 AM LE"
+  },
+  {
+    "idarticle": 56,
+    "name": "PUNTERA DE LOMO ESTANDAR",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2015 AM LE"
+  },
+  {
+    "idarticle": 57,
+    "name": "LOMADA ESTANDAR",
+    "color": "AM/NE",
+    "category": "REDUCTORES",
+    "code": "MP2019 AM/NE LE"
+  },
+  {
+    "idarticle": 58,
+    "name": "PUNTERA LOMADA ESTANDAR",
+    "color": "AM",
+    "category": "REDUCTORES",
+    "code": "MP2017 AM LE"
   }
 ]

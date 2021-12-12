@@ -82,7 +82,7 @@ export default function LoadOrder(props) {
             {props.data.map((article, key) => {
               return (
                 <option key={key} value={key}>
-                  {article.name}
+                  {article.code} {article.name}
                 </option>
               );
             })}

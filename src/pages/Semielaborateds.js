@@ -32,11 +32,11 @@ export default function Semielaborateds(props) {
       "Ingresa nuevo stock del semielaborado seleccionado"
     );
 
-    Axios.put("https://centralconoflex.herokuapp.com/updatematerialstock", {
+    Axios.put("https://centralconoflex.herokuapp.com/updateinventory", {
       stock: nuevoStock,
-      idmaterialstock: id,
+      idsemielaborated: id,
     }).then((response) => {
-      console.log("material updated");
+      console.log("semielaborated updated");
     });
   };
 
