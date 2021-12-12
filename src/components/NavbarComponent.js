@@ -25,7 +25,7 @@ function NavbarComponent() {
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Stock" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">
+                <NavDropdown.Item href="semielaborateds">
                   Semielaborados
                 </NavDropdown.Item>
                 <NavDropdown.Item href="material-stock">Material</NavDropdown.Item>

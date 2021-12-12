@@ -51,7 +51,7 @@ export default function LoadOrder(props) {
   return (
     <div>
       <NavbarComponent />
-      <Form className="container mt-5">
+      <Form className="container mt-4">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Cliente</Form.Label>
           <Form.Control
@@ -130,7 +130,7 @@ export default function LoadOrder(props) {
           Ingresar
         </Button>
       </Form>
-      <div className="container mt-5">
+      <div className="container mt-4">
         <h5>Ultimos pedidos</h5>
         <Table responsive="sm" className="mt-3" striped bordered hover>
           <thead>

@@ -11,8 +11,8 @@ import DeliveredOrders from "../pages/orders/DeliveredOrders";
 import FinishedProduction from "../pages/FinishedProduction";
 import Production from "../pages/Production";
 import Stock from "../pages/MaterialStock";
-import Inventory from "../pages/Inventory";
 import Login from "../pages/Login";
+import Semielaborateds from "../pages/Semielaborateds";
 
 export default function Enrutador(props) {
   return (
@@ -48,8 +48,8 @@ export default function Enrutador(props) {
         <Route path="/material-stock">
           <Stock material={Material} />
         </Route>
-        <Route path="/inventory">
-          <Inventory />
+        <Route path="/semielaborateds">
+          <Semielaborateds />
         </Route>
         <Route path="/">
           <Login
