@@ -48,6 +48,7 @@ export default function MaterialStock(props) {
         <Table responsive="sm" className="mt-3" striped bordered hover>
           <thead>
             <tr>
+              <th>ID</th>
               <th>Material</th>
               <th>Proveedor</th>
               <th>Color</th>
@@ -59,6 +60,7 @@ export default function MaterialStock(props) {
           <tbody>
             {pedidosActuales.map((material) => (
               <tr key={material.idmaterialstock}>
+                <td>{material.idmaterialstock}</td>
                 <td>{material.material}</td>
                 <td>{material.provider}</td>
                 <td>{material.color}</td>
