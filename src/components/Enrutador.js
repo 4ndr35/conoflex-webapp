@@ -9,6 +9,7 @@ import PendingOrders from "../pages/orders/PendingOrders";
 import CompletedOrders from "../pages/orders/CompletedOrders";
 import DeliveredOrders from "../pages/orders/DeliveredOrders";
 import FinishedProduction from "../pages/FinishedProduction";
+import Production from "../pages/Production";
 import Stock from "../pages/MaterialStock";
 import Inventory from "../pages/Inventory";
 import Login from "../pages/Login";
@@ -40,6 +41,9 @@ export default function Enrutador(props) {
         {/* PRODUCTION */}
         <Route path="/finished-production">
           <FinishedProduction articles={Articles} />
+        </Route>
+        <Route path="/productions">
+          <Production />
         </Route>
         <Route path="/material-stock">
           <Stock material={Material} />

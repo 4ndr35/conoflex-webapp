@@ -14,7 +14,7 @@ function NavbarComponent() {
                 <NavDropdown.Item href="finished-production">
                   Cargar produccion
                 </NavDropdown.Item>
-                <NavDropdown.Item href="material-stock">Lista de producciones</NavDropdown.Item>
+                <NavDropdown.Item href="productions">Lista de producciones</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Pedidos" id="basic-nav-dropdown">
                 <NavDropdown.Item href="load-order">

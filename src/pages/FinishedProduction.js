@@ -11,8 +11,7 @@ export default function FinishedProduction(props) {
   const [date, setDate] = useState("");
   const [worker, setWorker] = useState("");
   const [weight, setWeight] = useState(0);
-
-  const [pendingProduction, setPendingProduction] = useState([]);
+  const [idMaterial, setIDMaterial] = useState(0);
 
   const getInventory = () => {
     Axios.get("https://centralconoflex.herokuapp.com/getinventory").then(
@@ -28,14 +27,6 @@ export default function FinishedProduction(props) {
         setMaterial(response.data);
       }
     );
-  };
-
-  const getPendingProduction = () => {
-    Axios.get(
-      "https://centralconoflex.herokuapp.com/getpendingproduction"
-    ).then((response) => {
-      setPendingProduction(response.data);
-    });
   };
 
   /*
@@ -58,7 +49,8 @@ export default function FinishedProduction(props) {
     });
   };
 
-  const handleClick = (idArticle, idMaterial) => {
+  const handleClick = (idArticle) => {
+    console.log(idArticle);
     Axios.post("https://centralconoflex.herokuapp.com/createproduction", {
       employee: worker,
       article: articles[idArticle].name,
@@ -70,25 +62,23 @@ export default function FinishedProduction(props) {
         material[idMaterial].code,
       quantity: Number(quantity),
       weight: Number(weight),
+      date: date,
     }).then(() => {
       console.log("success");
     });
 
-    
     Axios.put("https://centralconoflex.herokuapp.com/updateinventory", {
       stock: articles[idArticle].stock + quantity,
       idarticle: idArticle,
     }).then((response) => {
       console.log("updated");
     });
-    
   };
 
   useEffect(() => {
     getInventory();
     getMaterialStock();
-    getPendingProduction();
-  }, [pendingProduction]);
+  }, [articles]);
 
   return (
     <div>
@@ -119,12 +109,24 @@ export default function FinishedProduction(props) {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>ID Material</Form.Label>
+          <Form.Control
+            name="idMaterial"
+            type="number"
+            onChange={(event) => {
+              setIDMaterial(event.target.value);
+            }}
+            placeholder="Ingresa el ID del material"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Articulo</Form.Label>
           <Form.Select name="article" type="select" id="select-article">
             {articles.map((article, key) => {
               return (
                 <option key={key} value={key}>
-                  {article.name} {article.color} 
+                  {article.name} {article.color}
                 </option>
               );
             })}
@@ -157,12 +159,7 @@ export default function FinishedProduction(props) {
 
         <Button
           onClick={() =>
-            handleClick(
-              document.getElementById("select-article").options[
-                document.getElementById("select-article").value
-              ].text,
-              document.getElementById("select-article").value
-            )
+            handleClick(document.getElementById("select-article").value)
           }
           variant="primary"
         >

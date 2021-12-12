@@ -57,7 +57,7 @@ export default function MaterialStock(props) {
             </tr>
           </thead>
           <tbody>
-            {materialStock.map((material) => (
+            {pedidosActuales.map((material) => (
               <tr key={material.idmaterialstock}>
                 <td>{material.material}</td>
                 <td>{material.provider}</td>
