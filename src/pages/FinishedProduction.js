@@ -50,7 +50,9 @@ export default function FinishedProduction(props) {
   };
 
   const handleClick = (idArticle) => {
-    console.log(idArticle);
+    const newStock = Number(articles[idArticle].stock) + Number(quantity);
+    console.log(newStock);
+    console.log(articles[idArticle].stock)
     Axios.post("https://centralconoflex.herokuapp.com/createproduction", {
       employee: worker,
       article: articles[idArticle].name,
@@ -68,8 +70,8 @@ export default function FinishedProduction(props) {
     });
 
     Axios.put("https://centralconoflex.herokuapp.com/updateinventory", {
-      stock: articles[idArticle].stock + quantity,
-      idarticle: idArticle,
+      stock: newStock,
+      idsemielaborated: idArticle
     }).then((response) => {
       console.log("updated");
     });
